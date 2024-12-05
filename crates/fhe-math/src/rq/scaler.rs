@@ -12,7 +12,7 @@ use ndarray::{s, Array2, Axis};
 use std::sync::Arc;
 
 /// Context extender.
-#[derive(Default, Debug, Clone, PartialEq, Eq)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 pub struct Scaler {
     from: Arc<Context>,
     to: Arc<Context>,

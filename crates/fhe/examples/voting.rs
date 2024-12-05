@@ -35,8 +35,8 @@ fn print_notice_and_exit(error: Option<String>) {
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let degree = 4096;
-    let plaintext_modulus: u64 = 4096;
+    let degree = 8;
+    let plaintext_modulus: u64 = 8;
     let moduli = vec![0xffffee001, 0xffffc4001, 0x1ffffe0001];
 
     // This executable is a command line tool which enables to specify
@@ -48,8 +48,8 @@ fn main() -> Result<(), Box<dyn Error>> {
         print_notice_and_exit(None)
     }
 
-    let mut num_voters = 1000;
-    let mut num_parties = 10;
+    let mut num_voters = 3;
+    let mut num_parties = 3;
 
     // Update the number of voters and/or number of parties depending on the
     // arguments provided.
@@ -122,6 +122,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         .collect();
     let mut votes_encrypted = Vec::with_capacity(num_voters);
     let mut _i = 0;
+    dbg!(&votes);
     timeit_n!("Vote casting (per voter)", num_voters as u32, {
         #[allow(unused_assignments)]
         let pt = Plaintext::try_encode(&[votes[_i]], Encoding::poly(), &params)?;

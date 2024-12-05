@@ -30,12 +30,13 @@ num-bigint.workspace = true
 num-bigint-dig.workspace = true
 num-traits.workspace = true
 prost.workspace = true
-pulp = "^0.18.9"
+pulp = { git = "https://github.com/zefr0x/pulp.git", branch = "implserde", commit = "69980e2dc564055aedb1a6263e011fc57dd4aac5", features = ["serde"] }
 rand.workspace = true
 rand_chacha.workspace = true
 thiserror.workspace = true
 zeroize.workspace = true
 zeroize_derive.workspace = true
+serde.workspace = true
 sha2.workspace = true
 
 [build-dependencies]

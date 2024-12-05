@@ -25,7 +25,7 @@ use std::sync::Arc;
 use zeroize::{Zeroize, Zeroizing};
 
 /// Possible representations of the underlying polynomial.
-#[derive(Default, Debug, Clone, PartialEq, Eq)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 pub enum Representation {
     /// This is the list of coefficients ci, such that the polynomial is c0 + c1
     /// * x + ... + c_(degree - 1) * x^(degree - 1)
@@ -76,7 +76,7 @@ impl SubstitutionExponent {
 }
 
 /// Struct that holds a polynomial for a specific context.
-#[derive(Default, Debug, Clone, PartialEq, Eq)]
+#[derive(Default, Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 pub struct Poly {
     ctx: Arc<Context>,
     representation: Representation,

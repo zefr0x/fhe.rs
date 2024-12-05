@@ -7,7 +7,7 @@ use rand::{CryptoRng, RngCore};
 
 /// A polynomial sampled from a random _common reference string_.
 // TODO CRS->CRP implementation. For now just a random polynomial.
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, serde::Deserialize, serde::Serialize)]
 pub struct CommonRandomPoly {
     pub(crate) poly: Poly,
 }

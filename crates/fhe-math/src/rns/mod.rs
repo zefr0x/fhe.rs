@@ -15,7 +15,7 @@ mod scaler;
 pub use scaler::{RnsScaler, ScalingFactor};
 
 /// Context for a Residue Number System.
-#[derive(Default, Clone, PartialEq, Eq)]
+#[derive(Default, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 pub struct RnsContext {
     moduli_u64: Vec<u64>,
     moduli: Vec<Modulus>,

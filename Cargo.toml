@@ -24,15 +24,16 @@ fastdiv = "^0.1.0"
 indicatif = "^0.17.8"
 itertools = "^0.12.1"
 log = "^0.4.21"
-ndarray = "^0.15.6"
-num-bigint = "^0.4.4"
+ndarray = { version = "^0.15.6", features = ["serde"] }
+num-bigint = { version = "^0.4.4", features = ["serde"] }
 num-bigint-dig = "^0.8.4"
 num-traits = "^0.2.18"
 proptest = "^1.4.0"
 prost = "^0.12.4"
 prost-build = "^0.12.3"
-rand = "^0.8.5"
-rand_chacha = "^0.3.1"
+rand = { version = "^0.8.5", features = ["serde1"] }
+rand_chacha = { version = "^0.3.1", features = ["serde"] }
+serde = { version = "1.0.215" }
 sha2 = "^0.10.8"
 thiserror = "^1.0.58"
 zeroize = "^1.8.0"

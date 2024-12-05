@@ -18,7 +18,7 @@ use std::fmt::Debug;
 use std::sync::Arc;
 
 /// Parameters for the BFV encryption scheme.
-#[derive(PartialEq, Eq)]
+#[derive(PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 pub struct BfvParameters {
     /// Number of coefficients in a polynomial.
     polynomial_degree: usize,
@@ -456,7 +456,7 @@ impl Deserialize for BfvParameters {
 }
 
 /// Multiplication parameters
-#[derive(Debug, PartialEq, Eq, Default)]
+#[derive(Debug, PartialEq, Eq, Default, serde::Serialize, serde::Deserialize)]
 pub(crate) struct MultiplicationParameters {
     pub(crate) extender: Scaler,
     pub(crate) down_scaler: Scaler,
@@ -514,7 +514,8 @@ mod tests {
     // 		.set_degree(1024)
     // 		.set_plaintext_modulus(0)
     // 		.build()
-    // 		.is_err_and(|e| e.to_string() == "modulus should be between 2 and 2^62-1"));
+    // 		.is_err_and(|e| e.to_string() == "modulus should be between 2 and
+    // 2^62-1"));
 
     // 	let params = BfvParametersBuilder::new()
     // 		.set_degree(1024)
@@ -544,15 +545,16 @@ mod tests {
     // 		.set_plaintext_modulus(2)
     // 		.set_moduli(&[1])
     // 		.build()
-    // 		.is_err_and(|e| e.to_string() == "modulus should be between 2 and 2^62-1"));
+    // 		.is_err_and(|e| e.to_string() == "modulus should be between 2 and
+    // 2^62-1"));
 
     // 	let params = BfvParametersBuilder::new()
     // 		.set_degree(8)
     // 		.set_plaintext_modulus(2)
     // 		.set_moduli(&[2])
     // 		.build();
-    // 	assert!(params.is_err_and(|e| e.to_string() == "Impossible to construct a Ntt
-    // operator"));
+    // 	assert!(params.is_err_and(|e| e.to_string() == "Impossible to construct a
+    // Ntt operator"));
 
     // 	let params = BfvParametersBuilder::new()
     // 		.set_degree(8)
